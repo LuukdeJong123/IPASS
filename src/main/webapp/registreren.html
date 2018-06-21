@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
- <title>Weer API</title>
+ <title>Registeren</title>
  	<head>
  	<link rel="stylesheet" type="text/css" href="Styling/main_style.css">
+ 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
  	</head>
-	<body>
+	<body onload="registreren();">
 	<div id="inlogpagina">
 	<div id="registreer3">
 	<h2 id="title">Maak een account aan! </h2>
 	<form id="registreer2">
-		Voornaam: <input type="text" name="voornaam"><br><br>
-		Tussenvoegsel: <input type="text" name="tussenvoegsel"><br><br>
-		Achternaam: <input type="text" name="achternaam"><br><br>
-		Gebruikersnaam: <input type="text" name="username"><br><br>
-	 	Wachtwoord: <input type="password" name="password"><br><br>
-	  	<input type="button" value="Registreer!" id="inloggen"><br><br>
+		Voornaam*: <input id="voornaam" type="text" name="voornaam"><br><br>
+		Tussenvoegsel: <input id="tussenvoegsel" type="text" name="tussenvoegsel"><br><br>
+		Achternaam*: <input id="achternaam" type="text" name="achternaam"><br><br>
+		Gebruikersnaam*: <input id="gebruikersnaam" type="text" name="gebruikersnaam"><br><br>
+	 	Wachtwoord*: <input id="wachtwoord" type="password" name="wachtwoord"><br><br>
+	  	* verplichte velden <br><br>
+	  	<input type="button" value="Registreer!" id="registreren">
+	  	
 	 </form>
 	
 	Toch wel een account? Klik hier om in te loggen!<br><br>

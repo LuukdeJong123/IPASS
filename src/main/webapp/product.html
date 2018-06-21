@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+ <title>Product</title>
+ 	<head>
+ 	<link rel="stylesheet" type="text/css" href="Styling/home_style.css">
+ 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+ 	</head>
+	<body onload="get_product(); add_opmerking(); uitloggen(); load_opmerking();">
+	<div id="homepagina">
+	<div>
+	<a id="href" href="home.html">Home</a>	<a id="href" href="producten.html">Prodcucten bekijken</a> 
+	<a id="href" href="product.html">Product bekijken</a> <a id="href" href="winkelwagen.html">Winkelwagen bekijken</a> 
+	<a id="href" href="toevoegen.html">Product Toevoegen</a> <input id="uitloggen" type="button" value="Uitloggen"><br><br>
+	</div> 
+	<div class="w3-container w3-blue sky">
+	<h1 id="titel">Product bekijken</h1>
+	<h2>Hier kunt u extra informatie krijgen over een product.</h2>
+	</div>
+	<form id="winkelwagen">
+	<div id="productinformatie">
+	<p name="productnaam" id="productnaam"> Naam:</p>
+	
+	<p name="productsmaak" id="productsmaak"> Smaak:</p>
+	
+	<p name="product_prijs" id="product_prijs">Prijs:</p>
+	
+	<p name="product_alcoholpercentage" id="product_alcoholpercentage">Alcoholpercentage:</p>
+	</div>
+	</form>
+	<input id="toevoegen1" type="button" value="Toevoegen aan winkelwagen"><br><br><br><br>
+	<div id="productinformatie">
+	Om een opmerking te plaatsen over dit product kan je die hier onder typen <br>
+	en dan daarna toevoegen door op de button plaats opmerking te klikken
+	</div>
+	<br><br>
+	<form id="reactie">
+	<input name="tekst" id="opmerking_plaatsen1" type="text"><br><br>
+	<input name="ID" id="opmerking_plaatsen2" type="text"><br><br>
+	</form>
+	<input id="opmerking_plaatsen" type="button" value="Plaats opmerking!"><br><br>
+	
+	<h2> Opmerkingen: </h2>
+	<div id="opmerkingen">	
+	</div>
+	</div>
+ 	</body>
+ 	
+ 	<script src="Scripts\product_script.js" type="text/javascript"></script>
+</html>

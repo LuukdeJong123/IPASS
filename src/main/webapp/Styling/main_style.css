@@ -3,7 +3,7 @@
     border: 5px solid 	#228B22;
 
 }
-#inloggen{   
+#registreren, #inloggen{   
 	background-color: #4CAF50;
     border: none;
     color: white;
@@ -41,7 +41,29 @@ h1{
     display: inline-block;
 }
 #image1{
-	margin-left:70%;
-	
+	margin-left:70%;	
 }
+#username{
+	margin-left:7%
+}
+#password{
+	margin-left: 44px;
+}
+#voornaam{
+	margin-left:9%;
+
+}
+#tussenvoegsel{
+	margin-left: 96px;
+}
+#achternaam{
+	margin-left:104px;
+}
+#gebruikersnaam{
+	margin-left:71px;
+}
+#wachtwoord{
+	margin-left:103px;
+}
+
 

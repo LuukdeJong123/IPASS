@@ -1,0 +1,49 @@
+#href{
+    background-color: #86af49;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+
+}
+#betalen_pagina{
+	padding: 40px;
+}
+#betalen{
+	background-color: #4169E1;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+#uitloggen{
+	background-color: #86af49;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+#table3{
+	font-family: arial;
+    width: 50%;
+    border: 1px solid;
+    text-align: left;
+}
+#totale_prijs1{
+	margin-left: 29%;
+}
+#postcode{
+	margin-left:10%;
+}
+#straat{
+	margin-left:117px;
+}
+#huisnummer{
+	margin-left:69px;
+}
+#toevoegingen{
+	margin-left:65px;
+}

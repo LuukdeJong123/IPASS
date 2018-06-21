@@ -8,7 +8,7 @@ public class PostgresBaseDao {
 	private static Connection conn;
 	  protected final Connection getConnection() throws SQLException, ClassNotFoundException {
 		  Class.forName("org.postgresql.Driver");
-		  conn = DriverManager.getConnection("jdbc:postgresql://localhost/worlddb?user=postgres&password=admin");
+		  conn = DriverManager.getConnection("jdbc:postgresql://localhost/IPASS?user=postgres&password=admin");
 		  
 		  return conn;
 
