@@ -21,7 +21,8 @@ function add_product(){
 	    	var formData = new FormData(document.querySelector("#toevoegen3"))
 			var encData = new URLSearchParams(formData.entries());
 	    	//Hier stuur ik een POST request om het product toe te voegen aan de database.
-			fetch("http://localhost:4471/app/restservices/producten", {method: "POST", body: encData})
+			fetch("https://ipassluuk.herokuapp.com/restservices/producten", {method: "POST", body: encData})
+			//http://localhost:4471/app/restservices/producten
 				.then(function(response){
 					return response.json();
 				})

@@ -28,7 +28,8 @@ function get_product(){
 		var formData = new FormData(document.querySelector("#winkelwagen"))
 		var encData = new URLSearchParams(formData.entries());
 		//Hier stuur ik een POST request om het product wat zojuist is gekozen toe te voegen aan de winkelwagen.
-		fetch("http://localhost:4471/app/restservices/producten/post_winkelwagen", {method: "POST", body: encData})
+		fetch("https://ipassluuk.herokuapp.com/restservices/producten/post_winkelwagen", {method: "POST", body: encData})
+		//http://localhost:4471/app/restservices/producten/post_winkelwagen
 			.then(function(response){
 				return response.json();
 			})
@@ -54,7 +55,8 @@ function add_opmerking(){
     	var formData = new FormData(document.querySelector("#reactie"))
 		var encData = new URLSearchParams(formData.entries());
     	//Hier stuur ik een POST request om de opmerking toe te voegen aan de database.
-		fetch("http://localhost:4471/app/restservices/producten", {method: "PUT", body: encData})
+		fetch("https://ipassluuk.herokuapp.com/restservices/producten", {method: "PUT", body: encData})
+		//http://localhost:4471/app/restservices/producten
 			.then(function(response){
 				return response.json();
 			})
@@ -73,7 +75,8 @@ function add_opmerking(){
 }
 function load_opmerking(){
 	//Hier haal ik met een GET request alle opmerkingen op uit de database.
-	fetch("http://localhost:4471/app/restservices/producten/opmerkingen")
+	fetch("https://ipassluuk.herokuapp.com/restservices/producten/opmerkingen")
+	//http://localhost:4471/app/restservices/producten/opmerkingen 
 	.then(function(response){
 		return response.json();
 		

@@ -1,7 +1,7 @@
 function get_winkelwagen(){
 	//Hier haal ik met een GET request alle winkelwagen items op uit de database.
-	fetch("http://localhost:4471/app/restservices/producten/winkelwagen")
-	
+	fetch("https://ipassluuk.herokuapp.com/restservices/producten/winkelwagen")
+	// http://localhost:4471/app/restservices/producten/winkelwagen
 	.then(function(response){
 		return response.json();		
 	})
@@ -29,8 +29,8 @@ function get_winkelwagen(){
 			button.addEventListener("click", function(){
 				var code = winkelwagen.winkelwagen_id;
 				//Hier gebruik ik een DELETE request om een item uit de database te verwijderen.
-				fetch("http://localhost:4471/app/restservices/producten/"+ code, {method: 'DELETE' })
-
+				fetch("https://ipassluuk.herokuapp.com/restservices/producten/"+ code, {method: 'DELETE' })
+				//http://localhost:4471/app/restservices/producten/
                 .then(function (response) { 
                     if (response.ok){
                     	//Als het is gelukt laad ik de pagina opnieuw 
