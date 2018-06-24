@@ -1,9 +1,9 @@
 package nl.hu.ipass.app.webservices;
 
 public class ServiceProvider {
-	private static ProductService productService = new ProductService();
+	private static WebshopService productService = new WebshopService();
 
-	public static ProductService getProductService() {
+	public static WebshopService getProductService() {
 		return productService;
 	}
 }

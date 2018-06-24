@@ -5,12 +5,13 @@
  	<link rel="stylesheet" type="text/css" href="Styling/home_style.css">
  	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
  	</head>
-	<body onload="get_winkelwagen();">
+	<body onload="get_winkelwagen(); uitloggen(); getToken(); getAantal();">
 	<div id="homepagina">
 	<div>
 	<a id="href" href="home.html">Home</a>	<a id="href" href="producten.html">Prodcucten bekijken</a> 
 	<a id="href" href="product.html">Product bekijken</a> <a id="href" href="winkelwagen.html">Winkelwagen bekijken</a> 
-	<a id="href" href="toevoegen.html">Product Toevoegen</a> <input id="uitloggen" type="button" value="Uitloggen"><br><br>
+	<a class="visibleAdmin" id="href" href="toevoegen.html">Product Toevoegen</a>
+	<a id="href" href="main.html">Inloggen</a> <input id="uitloggen" type="button" value="Uitloggen"><br><br>
 	</div> 
 	<div class="w3-container w3-blue sky">
 	<h1 id="titel">Winkelwagen bekijken</h1>
@@ -23,12 +24,14 @@
 	<th>Verwijderen?</th>
 	</tr>
 	</table>
-	<div id="dingen"></div>
-	<p id="totale_prijs"> Totale prijs:  </p>
-	<input id="bestellen1" type="button" value="Bestellen">
+	<div id="totaal">Totale prijs:</div>
+	
+	<p id="totale_prijs">   </p>
+	<input class="visibleLogin " id="bestellen1" type="button" value="Bestellen">
 	
 	</div>
  	</body>
  	
  	<script src="Scripts\winkelwagen_script.js" type="text/javascript"></script>
+ 	<script src="Scripts\rechten.js" type="text/javascript"></script>
 </html>

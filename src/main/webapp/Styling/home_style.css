@@ -39,8 +39,8 @@
     text-decoration: none;
     display: inline-block;
 }
-#totale_prijs{
-	margin-left: 27%;
+#totale_prijs, #totaal{
+	margin-left: 33%;
 }
 #input{
 	margin-left: 11%;
@@ -83,4 +83,14 @@ tr{
 }
 #opmerking_plaatsen2{
 	display:none;
+}
+#winkelwagen{
+	display:none;
+}
+
+.hide{
+	display: none !important;
+}
+.show{
+	display: -inline-block !important;
 }

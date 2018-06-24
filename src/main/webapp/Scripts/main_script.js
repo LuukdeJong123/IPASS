@@ -18,7 +18,24 @@ function login(){
 	        })
 	        .then(myJson => window.sessionStorage.setItem("myJWT", myJson.JWT))
 	        	.catch(error => console.log(error));
+
+	
+			fetch("http://localhost:4471/app/restservices/producten/user")
+			.then(function(response){
+				return response.json();
+			})
+			.then(function(myJson){
+				for(const klant of myJson){
+					var inlog=  document.getElementById("username");
+					if(inlog.value == klant.user_naam){
+						localStorage.setItem('klant_ID', klant.user_id)
+					}
+				}
+				
 			});
+	});
+				
+	
 }
 function registreren(){
 	
@@ -45,6 +62,8 @@ function registreren(){
 		        .then(function (response) {
 		            if (response.ok){
 		            	console.log("account aangemaakt");
+		            	var url ="main.html";
+		            	document.location.href = url;
 		                return response.json();
 		            }
 		            else throw "wrong username/password";

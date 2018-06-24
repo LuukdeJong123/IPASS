@@ -5,12 +5,13 @@
  	<link rel="stylesheet" type="text/css" href="Styling/betalen_style.css">
  	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
  	</head>
-	<body>
+	<body onload="betalen(); getToken(); getAantal();">
 	<div id="betalen_pagina">
 	<div>
 	<a id="href" href="home.html">Home</a>	<a id="href" href="producten.html">Prodcucten bekijken</a> 
 	<a id="href" href="product.html">Product bekijken</a> <a id="href" href="winkelwagen.html">Winkelwagen bekijken</a> 
-	<a id="href" href="toevoegen.html">Product Toevoegen</a> <input id="uitloggen" type="button" value="Uitloggen"><br><br>
+	<a class="visibleAdmin" id="href" href="toevoegen.html">Product Toevoegen</a>
+	<a id="href" href="main.html">Inloggen</a> <input id="uitloggen" type="button" value="Uitloggen"><br><br>
 	</div> 
 	<div class="w3-container w3-blue sky">
 	<h1 id="titel">Producten betalen</h1>
@@ -31,7 +32,13 @@
 	
 	<input id="betalen" type="button" value="Betalen">
 	</div>
+	<form id="bestelling">
+		 <input id="datum" type="text" name="datum"><br><br>
+		 <input id="tijd" type="text" name="tijd"><br><br>
+		<input id="id" type="text" name="id"><br><br>
+	 </form>
  	</body>
  	
- 	<script src="Scripts\home_script.js" type="text/javascript"></script>
+ 	<script src="Scripts\betalen_script.js" type="text/javascript"></script>
+ 	<script src="Scripts\rechten.js" type="text/javascript"></script>
 </html>

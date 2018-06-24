@@ -5,29 +5,29 @@
  	<link rel="stylesheet" type="text/css" href="Styling/home_style.css">
  	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
  	</head>
-	<body onload="get_product(); add_opmerking(); uitloggen(); load_opmerking();">
+	<body onload="get_product(); add_opmerking(); uitloggen(); load_opmerking(); getToken();">
 	<div id="homepagina">
 	<div>
 	<a id="href" href="home.html">Home</a>	<a id="href" href="producten.html">Prodcucten bekijken</a> 
 	<a id="href" href="product.html">Product bekijken</a> <a id="href" href="winkelwagen.html">Winkelwagen bekijken</a> 
-	<a id="href" href="toevoegen.html">Product Toevoegen</a> <input id="uitloggen" type="button" value="Uitloggen"><br><br>
+	<a class="visibleAdmin" id="href" href="toevoegen.html">Product Toevoegen</a>
+	<a id="href" href="main.html">Inloggen</a> <input id="uitloggen" type="button" value="Uitloggen"><br><br>
 	</div> 
 	<div class="w3-container w3-blue sky">
 	<h1 id="titel">Product bekijken</h1>
 	<h2>Hier kunt u extra informatie krijgen over een product.</h2>
 	</div>
-	<form id="winkelwagen">
+	
 	<div id="productinformatie">
-	<p name="productnaam" id="productnaam"> Naam:</p>
 	
-	<p name="productsmaak" id="productsmaak"> Smaak:</p>
+	<p  id="productnaam"> Naam:</p>
+	<p  id="product_prijs">Prijs:</p>
+
+	<p  id="productsmaak"> Smaak:</p>
 	
-	<p name="product_prijs" id="product_prijs">Prijs:</p>
-	
-	<p name="product_alcoholpercentage" id="product_alcoholpercentage">Alcoholpercentage:</p>
-	</div>
-	</form>
+	<p  id="product_alcoholpercentage">Alcoholpercentage:</p>
 	<input id="toevoegen1" type="button" value="Toevoegen aan winkelwagen"><br><br><br><br>
+	</div>
 	<div id="productinformatie">
 	Om een opmerking te plaatsen over dit product kan je die hier onder typen <br>
 	en dan daarna toevoegen door op de button plaats opmerking te klikken
@@ -43,7 +43,13 @@
 	<div id="opmerkingen">	
 	</div>
 	</div>
+	<form id="winkelwagen">
+		Naam: <input id="productnaam2" type="text" name="productnaam"><br><br>
+		Prijs: <input id="product_prijs2" type="number" name="productprijs"><br><br>
+
+	 </form>
  	</body>
  	
  	<script src="Scripts\product_script.js" type="text/javascript"></script>
+ 	<script src="Scripts\rechten.js" type="text/javascript"></script>
 </html>

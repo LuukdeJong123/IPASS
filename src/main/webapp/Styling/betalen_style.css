@@ -33,17 +33,26 @@
     text-align: left;
 }
 #totale_prijs1{
-	margin-left: 29%;
+	margin-left: 33%;
 }
 #postcode{
 	margin-left:10%;
 }
 #straat{
-	margin-left:117px;
+	margin-left:166px;
 }
 #huisnummer{
-	margin-left:69px;
+	margin-left:115px;
 }
 #toevoegingen{
-	margin-left:65px;
+	margin-left:108px;
+}
+#bestelling{
+	display:none;
+}
+.hide{
+	display: none !important;
+}
+.show{
+	display: -inline-block !important;
 }

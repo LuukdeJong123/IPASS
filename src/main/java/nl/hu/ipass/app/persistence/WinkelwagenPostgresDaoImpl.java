@@ -48,5 +48,23 @@ public class WinkelwagenPostgresDaoImpl extends PostgresBaseDao implements Winke
 			 return false;
 		 }
 	}
+	
+	public boolean deleteWinkelwagen(int code) throws ClassNotFoundException, SQLException {
+		Connection conn = getConnection();
+		Statement st;
+		int rs;
+		if (code != 0) {
+			String query = "DELETE FROM WINKELWAGEN WHERE WINKELWAGENID = (?)";
+			PreparedStatement pstmt = conn.prepareStatement(query);
+	        pstmt.setInt(1,code);
+	        int result = pstmt.executeUpdate();
+	        System.out.println("Het product met naam "+code+" is verwijderd uit de winkelwagen");
+		    return true;
+		}
+		else{
+			 System.out.println("Product is niet verwijderd");
+			 return false;
+		 }
+	}
 
 }

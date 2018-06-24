@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserPostgresDaoImpl extends PostgresBaseDao implements UserDao {
 	
@@ -21,6 +23,22 @@ public class UserPostgresDaoImpl extends PostgresBaseDao implements UserDao {
    
     System.out.println("De rol van deze user is "+var);
 	return var;
+	}
+	
+	public List<User> findAllUsersID() throws ClassNotFoundException, SQLException {
+	Connection conn = getConnection();
+	ArrayList<User> lijst_users = new ArrayList<User>();
+	String query = "SELECT * FROM KLANT";
+	PreparedStatement stat = conn.prepareStatement(query);
+    ResultSet rs = stat.executeQuery();	
+   
+    while(rs.next()) {
+    	User user = new User();
+    	user.setID(rs.getInt("klantid"));
+    	user.setGebruikersnaam(rs.getString("gebruikersnaam"));
+    	lijst_users.add(user);
+    }
+	return lijst_users;
 	}
 	
 
@@ -46,5 +64,23 @@ public class UserPostgresDaoImpl extends PostgresBaseDao implements UserDao {
 			 return false;
 		 }
 	
+	}
+	
+	public boolean add_bestelling(String datum, String tijd, int id) throws ClassNotFoundException, SQLException{
+		 Connection conn = getConnection();
+		 if (datum !=null) {
+			 String insert = "INSERT INTO BESTELLING (datum, tijd,klantid) VALUES( to_date('"+datum+"', 'yyyy-mm-dd'),?,?)";
+			 PreparedStatement pstmt = conn.prepareStatement(insert);
+
+		     pstmt.setString(1, tijd );
+		     pstmt.setInt(2, id);
+		     int result = pstmt.executeUpdate();
+		     System.out.println("De bestelling met datum "+datum+" is toegevoegd!");
+			 return true;
+		 }
+		 else {
+			 System.out.println("Bestelling is niet toegevoegd");
+			 return false;
+		 }
 	}
 }

@@ -23,11 +23,29 @@ function showProducten(){
 			btn.value="Toevoegen";
 			row.appendChild(btn);
 			
+			var opsturen1 = document.querySelector("#productnaam2")
+			opsturen1.value=product.Naam;
+			var opsturen2 = document.querySelector("#product_prijs2")
+			opsturen2.value=product.Prijs;
+			
 			var button = document.querySelector(".btn")
 			button.addEventListener("click", function(){
+				var opsturen1 = document.querySelector("#productnaam2")
+				opsturen1.value=product.Naam;
+				var opsturen2 = document.querySelector("#product_prijs2")
+				opsturen2.value=product.Prijs;
 				
+				var formData = new FormData(document.querySelector("#winkelwagen"))
+				var encData = new URLSearchParams(formData.entries());
+				
+				fetch("http://localhost:4471/app/restservices/producten/post_winkelwagen", {method: "POST", body: encData})
+					.then(function(response){
+						return response.json();
+					})
+					.then(function(myJson){
+						alert("Product is toegevoegd aan de winkelwagen")
+					});
 
-				
 			});
 			row.addEventListener("click", function(e){
 				if(e.path[0].value ==="Toevoegen"){

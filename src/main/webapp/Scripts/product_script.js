@@ -16,10 +16,25 @@ function get_product(){
 	var percentage = document.querySelector("#product_alcoholpercentage")
 	percentage.innerHTML = "Alcoholpercentage: "+ product_alcoholpercentage +"%";
 	
+	var opsturen1 = document.querySelector("#productnaam2")
+	opsturen1.value=product_naam;
+	var opsturen2 = document.querySelector("#product_prijs2")
+	opsturen2.value=product_prijs;
+
+	
 	var button = document.querySelector("#toevoegen1")
 	button.addEventListener("click", function(){
 		
-	
+		var formData = new FormData(document.querySelector("#winkelwagen"))
+		var encData = new URLSearchParams(formData.entries());
+		
+		fetch("http://localhost:4471/app/restservices/producten/post_winkelwagen", {method: "POST", body: encData})
+			.then(function(response){
+				return response.json();
+			})
+			.then(function(myJson){
+				alert("Product is toegevoegd aan de winkelwagen")
+			});
 	});
 
 }
@@ -30,7 +45,7 @@ function add_opmerking(){
 	var button = document.querySelector("#opmerking_plaatsen")
 	button.addEventListener("click", function(){
 		var reactie = document.querySelector("#opmerking_plaatsen1");
-		if(reactie.innerHTML == ""){
+		if(reactie.value == ""){
 			alert("U moet wel iets neerzetten bij de opmerking!")
 		}
 		else{
@@ -83,14 +98,10 @@ function uitloggen(){
 	var button = document.querySelector("#uitloggen");
 	button.addEventListener('click', function(){
 		if(confirm("Weet u zeker dat u wilt uitloggen?")){
-			if(window.sessionStorage.getItem("myJWT") === null){
-				alert("U bent nog niet ingelogd of uw sessie is verlopen")
-			}
-			else{
 				window.sessionStorage.removeItem("myJWT")
 				var url ="home.html";
 	        	document.location.href = url;
-			}
+			
 		}
 		else{
 			alert("U bent niet uitgelogd!")

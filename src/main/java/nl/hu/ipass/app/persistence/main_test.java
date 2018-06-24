@@ -11,15 +11,12 @@ public class main_test {
 	OpmerkingPostgresDaoImpl o1 = new OpmerkingPostgresDaoImpl();
 	WinkelwagenPostgresDaoImpl w1 = new WinkelwagenPostgresDaoImpl();
 	
-	w1.getWinkelwagen();
-	for (Product product : w1.getWinkelwagen()) {
-		System.out.println("Land "+product.getNaam());
+	
+	
+	for (User country : u1.findAllUsersID()) {
+		System.out.println("Land "+country.getID());
 	}
-	Product product = new Product();
-	product.setNaam("Smirnoff Vodka");
-	product.setPrijs(19.99);
-	w1.insertWinkelwagen(product);
-	}
+}
 }
 	
 	
