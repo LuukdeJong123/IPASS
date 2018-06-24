@@ -3,6 +3,7 @@
     border: 5px solid 	#228B22;
 
 }
+
 #registreren, #inloggen{   
 	background-color: #4CAF50;
     border: none;
@@ -16,6 +17,7 @@
     cursor: pointer;
 
 } 
+/* Labels */
 #inlog1{
 	margin-left:6%;
 }
@@ -32,6 +34,7 @@ h1{
 #titel{
 	margin-left:6%;
 }
+/* Link naar inloggen en link naar registeren */
 #href1{
     background-color: #f44336;
     color: white;
@@ -43,12 +46,14 @@ h1{
 #image1{
 	margin-left:70%;	
 }
+/* Inlog velden  */
 #username{
 	margin-left:7%
 }
 #password{
 	margin-left: 44px;
 }
+/* Registeren velden */
 #voornaam{
 	margin-left:9%;
 

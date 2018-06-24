@@ -1,3 +1,4 @@
+/* Dit zijn alle A HREFS */
 #href{
     background-color: #86af49;
     color: white;
@@ -11,6 +12,7 @@
 #homepagina{
 	padding: 40px;
 }
+/* Het plaatje op de begin pagina */
 #img1{
 	border-radius: 10px;
 	margin-left:30%;
@@ -24,6 +26,7 @@
     text-decoration: none;
     display: inline-block;
 }
+/* Alle tabbelen van de pagina's */
 #table, #table1{
     font-family: arial;
     width: 100%;
@@ -42,6 +45,7 @@
 #totale_prijs, #totaal{
 	margin-left: 33%;
 }
+/* De toevoegen velden voor het toevoegen van een product */
 #input{
 	margin-left: 11%;
 }

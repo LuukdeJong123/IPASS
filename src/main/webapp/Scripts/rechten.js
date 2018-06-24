@@ -1,5 +1,6 @@
 function getToken(){
     token = window.sessionStorage.getItem("myJWT");
+    //Als je niet bent ingelogd dan moet je veel kunnen zien maar niet alles en dat wordt hiet bepaald
 	if (token == null) {
 		console.log('niet ingelogd');
 		var list = document.querySelectorAll(".visibleGuest");
@@ -24,10 +25,12 @@ function getToken(){
 }
 
 function parseJwt (token) {
-    var base64Url = token.split('.')[1];;
-    var base64 = base64Url.replace('-', '+').replace('_', '/');
-    var base = JSON.parse(window.atob(base64));
-	if (base.role == 'user') {
+	//
+    var jwt = token.split('.')[1];;
+    var jwt_gesplit = jwt.replace('-', '+').replace('_', '/');
+    var jwt2 = JSON.parse(window.atob(jwt_gesplit));
+    //Niet alles moet zichtbaar zijn voor user
+	if (jwt2.role == 'user') {
 		console.log('ingelogd als klant');
 		var list = document.querySelectorAll(".visibleGuest");
 		for (var i = list.length; i--;) {
@@ -48,8 +51,8 @@ function parseJwt (token) {
 		for (var i = list4.length; i--;) {
 		    list4[i].className = list4[i].className + ' show';
 		}
-		
-	} else if(base.role == 'admin') {
+	//Alles moet zichtbaar zijn voor admin
+	} else if(jwt2.role == 'admin') {
 		console.log('ingelogd als medewerker');
 		
 		var list = document.querySelectorAll(".visibleGuest");

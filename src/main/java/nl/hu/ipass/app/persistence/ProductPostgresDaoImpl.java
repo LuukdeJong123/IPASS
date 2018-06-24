@@ -10,9 +10,10 @@ import java.util.List;
 
 public class ProductPostgresDaoImpl extends PostgresBaseDao implements ProductDao {
 
-
+	// Deze functie haalt alle producten uit de database.
 	public List<Product> findAll() throws SQLException, ClassNotFoundException {
 		ArrayList<Product> lijst_producten = new ArrayList<Product>();
+		//Hier wordt een connectie gelegd met de database en wordt er een statement gemaakt voor de sql query
 		Connection conn = getConnection();
 		Statement st;
 		ResultSet rs = null;
@@ -20,7 +21,9 @@ public class ProductPostgresDaoImpl extends PostgresBaseDao implements ProductDa
 		String query = "SELECT * FROM PRODUCT";
 		st = conn.createStatement();
 		rs = st.executeQuery(query);
+		//Deze while loop haalt elke keer alle informatie op van een product en zet het in een lijst.
 		while (rs.next()) {
+			
 			Product product = new Product();
 			product.setID(rs.getInt("PRODUCTID"));
 			product.setNaam(rs.getString("NAAM"));
@@ -34,11 +37,11 @@ public class ProductPostgresDaoImpl extends PostgresBaseDao implements ProductDa
 
 
 
-
+	// Deze functie haalt alle producten uit de database.
 	public boolean save(Product product) throws SQLException, ClassNotFoundException {
+		//Hier wordt een connectie gelegd met de database en wordt er een statement gemaakt voor de sql query
 		Connection conn = getConnection();
-		Statement st;
-		int rs;
+		//Als het product dat wordt meegeven niet null is mag dit worden uitgevoerd
 		if (product != null) {
 			String query = "INSERT INTO PRODUCT (naam,smaak,prijs,alcoholpercentage) VALUES(?,?,?,?)";
 			PreparedStatement pstmt = conn.prepareStatement(query);

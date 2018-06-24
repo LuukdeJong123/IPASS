@@ -10,7 +10,9 @@ import nl.hu.ipass.app.persistence.ProductPostgresDaoImpl;
 import nl.hu.ipass.app.persistence.User;
 import nl.hu.ipass.app.persistence.UserPostgresDaoImpl;
 import nl.hu.ipass.app.persistence.WinkelwagenPostgresDaoImpl;
-
+//Deze klasse haalt alle persistence functies uit de persistence mapje. Alle functie worden gewoon geimporteerd dus als u wil weten wat de code inhoud kunt u naar het persistence mapje gaan
+//Zo voorkom ik duplicatie van code.
+//
 public class WebshopService {
 	public List<Product> getAllProducten() throws SQLException, ClassNotFoundException {
 		ProductPostgresDaoImpl p1 = new ProductPostgresDaoImpl();

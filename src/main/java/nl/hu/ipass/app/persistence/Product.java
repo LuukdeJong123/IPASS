@@ -1,5 +1,5 @@
 package nl.hu.ipass.app.persistence;
-
+//Dit is een normale POJO klasse alles spreekt voor zich. Er zijn getters en setters voor de attributen in de database
 public class Product {
 	private int ID;
 	private String naam;

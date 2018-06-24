@@ -17,7 +17,7 @@ public class AuthenticationFilter {
 	    
 	    boolean isSecure = requestCtx.getSecurityContext().isSecure();
 	    
-	    // Users are treated as guests, unless a valid JWT is provided
+	    //Hier wordt gekeken of de token nog geldig is en anders wordt hij geredirect als gast.
 	    MySecurityContext msc = new MySecurityContext("Unknown", "guest", isSecure);
 	    String authHeader = requestCtx.getHeaderString(HttpHeaders.AUTHORIZATION);
 	    if (authHeader != null && authHeader.startsWith("Bearer ")) {
@@ -25,7 +25,7 @@ public class AuthenticationFilter {
 	      String token = authHeader.substring("Bearer".length()).trim();
 	 
 	      try {
-	        // Validate the token
+	        // Kijken of de token nog geldig is en of hij wel bestaat anders gaat hij door als gast.
 	        JwtParser parser = Jwts.parser().setSigningKey(AuthenicationResource.key);
 	        Claims claims = parser.parseClaimsJws(token).getBody();
 	 

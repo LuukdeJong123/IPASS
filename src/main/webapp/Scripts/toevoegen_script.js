@@ -1,4 +1,5 @@
 function add_product(){
+	//Aan de button toeveogen2 wordt een event listener toegevoegd.
     var button3 = document.querySelector("#toevoegen2");
     button3.addEventListener('click', function () {
     	
@@ -19,7 +20,7 @@ function add_product(){
 		}else{
 	    	var formData = new FormData(document.querySelector("#toevoegen3"))
 			var encData = new URLSearchParams(formData.entries());
-			
+	    	//Hier stuur ik een POST request om het product toe te voegen aan de database.
 			fetch("http://localhost:4471/app/restservices/producten", {method: "POST", body: encData})
 				.then(function(response){
 					return response.json();

@@ -1,3 +1,4 @@
+/* Dit zijn alle A HREFS */
 #href{
     background-color: #86af49;
     color: white;
@@ -26,6 +27,7 @@
     text-decoration: none;
     display: inline-block;
 }
+/* Tabel */
 #table3{
 	font-family: arial;
     width: 50%;
@@ -35,6 +37,7 @@
 #totale_prijs1{
 	margin-left: 33%;
 }
+/* De invul velden */
 #postcode{
 	margin-left:10%;
 }

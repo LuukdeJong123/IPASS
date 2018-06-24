@@ -2,21 +2,26 @@
 <html>
  <title>Winkelwagen</title>
  	<head>
+ 		<!-- Een import naar stylesheets die ik gebruik voor de webshop -->
  	<link rel="stylesheet" type="text/css" href="Styling/home_style.css">
  	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
  	</head>
+ 	<!-- Alle functies die worden gebruikt -->
 	<body onload="get_winkelwagen(); uitloggen(); getToken(); getAantal();">
 	<div id="homepagina">
 	<div>
+	<!-- Alle links naar alle pagina's -->
 	<a id="href" href="home.html">Home</a>	<a id="href" href="producten.html">Prodcucten bekijken</a> 
 	<a id="href" href="product.html">Product bekijken</a> <a id="href" href="winkelwagen.html">Winkelwagen bekijken</a> 
 	<a class="visibleAdmin" id="href" href="toevoegen.html">Product Toevoegen</a>
 	<a id="href" href="main.html">Inloggen</a> <input id="uitloggen" type="button" value="Uitloggen"><br><br>
 	</div> 
+	<!-- Header -->
 	<div class="w3-container w3-blue sky">
 	<h1 id="titel">Winkelwagen bekijken</h1>
 	<h3>Hier staan alle producten die u heeft toegevoegd aan de winkelwagen. </h3>
 	</div>
+	<!-- Tabel met informatie van de winkelwagen -->
 	<table id="table1">
 	<tr>
 	<th> Naam:</th>
@@ -27,6 +32,7 @@
 	<div id="totaal">Totale prijs:</div>
 	
 	<p id="totale_prijs">   </p>
+	<!-- Betalen van alle producten in de winkelwagen -->
 	<input class="visibleLogin " id="bestellen1" type="button" value="Bestellen">
 	
 	</div>

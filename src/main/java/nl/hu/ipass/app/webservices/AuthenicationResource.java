@@ -25,22 +25,25 @@ import nl.hu.ipass.app.persistence.UserPostgresDaoImpl;
 
 @Path("/authentication")
 public class AuthenicationResource {
+	//Deze variabele maakt het JWT token en deze key is random.
 	final static public Key key = MacProvider.generateKey();
-
+      
 	  @POST
 	  @Produces(MediaType.APPLICATION_JSON)
 	  @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	  //Deze functie kijkt voor de gebruikersnaam en wachtwoord welke rol die klant heeft.
 	  public Response authenticateUser(@FormParam("username") String username, 
 	                                   @FormParam("password") String password) throws ClassNotFoundException, SQLException {
 	    try {
-	      // Authenticate the user against the database
+	    
+	      //Kijkt naar de klant zijn rol
 	      UserDao dao = new UserPostgresDaoImpl();
 	      String role = dao.findRoleForUser(username, password);
-	      
+	      //Als de klant geen rol heeft wordt het proces gestopt en is er geen klant/
 	      if (role == null) { throw new IllegalArgumentException("No user found!");  } 
 	      
 	      String token = createToken(username, role);
-
+	      //Hier wordt de token echt aangemaakt 
 	      SimpleEntry<String, String> JWT = new SimpleEntry<String, String>("JWT", token);
 	      return Response.ok(JWT).build();
 
@@ -48,10 +51,11 @@ public class AuthenicationResource {
 	    } catch (JwtException | IllegalArgumentException e) 
 	        { return Response.status(Response.Status.UNAUTHORIZED).build(); }
 	  }
+	  //Deze maakt een token aan die voor 30 minuten lang geldig blijft daarna is hij ongeldig.
 	  private String createToken(String username, String role) throws JwtException {
 		    Calendar expiration = Calendar.getInstance();
 		    expiration.add(Calendar.MINUTE, 30);
-		  
+		 
 		    return Jwts.builder()
 		      .setSubject(username)
 		      .setExpiration(expiration.getTime())
@@ -60,14 +64,16 @@ public class AuthenicationResource {
 		      .compact();
 	  }
 	  
-
+	  //Hier wordt een account aangemaakt.
 	  @PUT
 	  @Produces("application/json")
 	  public Response addAccount(@FormParam ("voornaam")String voornaam, @FormParam("tussenvoegsel")String tussenvoegsel,
 			  						@FormParam("achternaam") String achternaam, @FormParam("gebruikersnaam") String gebruikersnaam ,
 			  						@FormParam("wachtwoord") String wachtwoord) throws ClassNotFoundException, SQLException {
+		  //Hier wordt niet de service opgehaald maar wordt er direct naar de Perstince mapje gegaan.
 		  UserDao dao = new UserPostgresDaoImpl();
-		  String var= "hoi";
+		  String var= "gelukt!";
+		  //Hier wordt de voornaam enzovoort ingevuld en dan naar de database gestuurd.
 		  dao.add_account(voornaam, tussenvoegsel, achternaam, gebruikersnaam, wachtwoord);
 		  if (voornaam == null) {
 	            Map<String, String> messages = new HashMap<String, String>();

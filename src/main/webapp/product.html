@@ -2,22 +2,26 @@
 <html>
  <title>Product</title>
  	<head>
+ 	<!-- Een import naar stylesheets die ik gebruik voor de webshop -->
  	<link rel="stylesheet" type="text/css" href="Styling/home_style.css">
  	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
  	</head>
+ 	<!-- Alle functies die worden gebruikt -->
 	<body onload="get_product(); add_opmerking(); uitloggen(); load_opmerking(); getToken();">
 	<div id="homepagina">
 	<div>
+	<!-- Alle links naar alle pagina's -->
 	<a id="href" href="home.html">Home</a>	<a id="href" href="producten.html">Prodcucten bekijken</a> 
 	<a id="href" href="product.html">Product bekijken</a> <a id="href" href="winkelwagen.html">Winkelwagen bekijken</a> 
 	<a class="visibleAdmin" id="href" href="toevoegen.html">Product Toevoegen</a>
 	<a id="href" href="main.html">Inloggen</a> <input id="uitloggen" type="button" value="Uitloggen"><br><br>
 	</div> 
+	<!-- Header -->
 	<div class="w3-container w3-blue sky">
 	<h1 id="titel">Product bekijken</h1>
 	<h2>Hier kunt u extra informatie krijgen over een product.</h2>
 	</div>
-	
+	<!-- INformatie van het product -->
 	<div id="productinformatie">
 	
 	<p  id="productnaam"> Naam:</p>
@@ -28,6 +32,7 @@
 	<p  id="product_alcoholpercentage">Alcoholpercentage:</p>
 	<input id="toevoegen1" type="button" value="Toevoegen aan winkelwagen"><br><br><br><br>
 	</div>
+	<!-- Opmerkingen plaatsen systeem -->
 	<div id="productinformatie">
 	Om een opmerking te plaatsen over dit product kan je die hier onder typen <br>
 	en dan daarna toevoegen door op de button plaats opmerking te klikken
