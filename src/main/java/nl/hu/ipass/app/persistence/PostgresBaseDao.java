@@ -10,6 +10,7 @@ public class PostgresBaseDao {
 		  Class.forName("org.postgresql.Driver");
 		  conn = DriverManager.getConnection("jdbc:postgresql://ec2-54-247-87-201.eu-west-1.compute.amazonaws.com/d7aaef90cv9mbg?user=todrtwfcbsyfmj&password=5046b4f0d816f652d98139b3fd29dd3605ac3e991ba6b802e924209c5408d659");
 		  //jdbc:postgresql://localhost/IPASS?user=postgres&password=admin
+		  //postgres://todrtwfcbsyfmj:5046b4f0d816f652d98139b3fd29dd3605ac3e991ba6b802e924209c5408d659@ec2-54-247-87-201.eu-west-1.compute.amazonaws.com:5432/d7aaef90cv9mbg
 		  return conn;
 
 		  } 
