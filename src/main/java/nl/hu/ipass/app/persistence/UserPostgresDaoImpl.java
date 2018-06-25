@@ -24,6 +24,7 @@ public class UserPostgresDaoImpl extends PostgresBaseDao implements UserDao {
     }
    
     System.out.println("De rol van deze user is "+var);
+    conn.close();
 	return var;
 	}
 	//Deze functie zoekt alle ID's van de klanten.
@@ -41,6 +42,7 @@ public class UserPostgresDaoImpl extends PostgresBaseDao implements UserDao {
     	user.setGebruikersnaam(rs.getString("gebruikersnaam"));
     	lijst_users.add(user);
     }
+    conn.close();
 	return lijst_users;
 	}
 	
@@ -49,24 +51,26 @@ public class UserPostgresDaoImpl extends PostgresBaseDao implements UserDao {
 		//Hier wordt een connectie gelegd met de database en wordt er een statement gemaakt voor de sql query
 		Connection conn = getConnection();
 		 if (naam !=null) {
-		 String insert = "INSERT INTO KLANT (naam, tussenvoegsel, achternaam, gebruikersnaam, wachtwoord, rol) "
-		 				+ "VALUES(?,?,?,?,?,?)";
-		 //Als de naam die wordt meegegeven niet null is mag deze statement uitgevoerd worden
-         PreparedStatement pstmt = conn.prepareStatement(insert);
-         //De setString methode kijkt in de prepared statement en vult de naam of achternaam in bij het vraagteken zo maak je minder snel een fout.
-         pstmt.setString(1, naam );
-         pstmt.setString(2, tussenvoegsel );
-         pstmt.setString(3,  achternaam);
-         pstmt.setString(4, gebruikersnaam );
-         pstmt.setString(5, wachtwoord );
-         pstmt.setString(6, "user");
-         int result = pstmt.executeUpdate();
-         System.out.println("De user met naam "+naam+" is toegevoegd!");
-	     return true;
+			 String insert = "INSERT INTO KLANT (naam, tussenvoegsel, achternaam, gebruikersnaam, wachtwoord, rol) "
+			 				+ "VALUES(?,?,?,?,?,?)";
+			 //Als de naam die wordt meegegeven niet null is mag deze statement uitgevoerd worden
+	         PreparedStatement pstmt = conn.prepareStatement(insert);
+	         //De setString methode kijkt in de prepared statement en vult de naam of achternaam in bij het vraagteken zo maak je minder snel een fout.
+	         pstmt.setString(1, naam );
+	         pstmt.setString(2, tussenvoegsel );
+	         pstmt.setString(3,  achternaam);
+	         pstmt.setString(4, gebruikersnaam );
+	         pstmt.setString(5, wachtwoord );
+	         pstmt.setString(6, "user");
+	         int result = pstmt.executeUpdate();
+	         System.out.println("De user met naam "+naam+" is toegevoegd!");
+	         conn.close();
+		     return true;
 		 }
 		 //Als de naam null is wordt de user niet toegevoegd
 		 else {
 			 System.out.println("User is niet toegevoegd");
+			 conn.close();
 			 return false;
 		 }
 	
@@ -84,10 +88,12 @@ public class UserPostgresDaoImpl extends PostgresBaseDao implements UserDao {
 		     pstmt.setInt(2, id);
 		     int result = pstmt.executeUpdate();
 		     System.out.println("De bestelling met datum "+datum+" is toegevoegd!");
+		     conn.close();
 			 return true;
 		 }
 		 else {
 			 System.out.println("Bestelling is niet toegevoegd");
+			 conn.close();
 			 return false;
 		 }
 	}

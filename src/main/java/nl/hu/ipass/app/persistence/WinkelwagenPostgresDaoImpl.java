@@ -29,6 +29,7 @@ public class WinkelwagenPostgresDaoImpl extends PostgresBaseDao implements Winke
 			product.setPrijs(rs.getDouble("PRIJS"));
 			lijst_producten.add(product);		
 		}
+		conn.close();
 		return lijst_producten;
 	}
 	// Deze functie zet een product in de winkelwagen.
@@ -42,13 +43,16 @@ public class WinkelwagenPostgresDaoImpl extends PostgresBaseDao implements Winke
 	        pstmt.setDouble(2,  product.getPrijs());
 	        int result = pstmt.executeUpdate();
 	        System.out.println("Het product met naam "+product.getNaam()+" is toegevoegd aan de winkelwagen!");
+	        conn.close();
 		    return true;
 		}
 		//Als het product null is gebeurd er natuurlijk niks met de database
 		else{
 			 System.out.println("Product is niet toegevoegd");
+			 conn.close();
 			 return false;
 		 }
+		
 	}
 	// Deze functie verwijderd een product uit de database.
 	public boolean deleteWinkelwagen(int code) throws ClassNotFoundException, SQLException {
@@ -60,12 +64,15 @@ public class WinkelwagenPostgresDaoImpl extends PostgresBaseDao implements Winke
 	        pstmt.setInt(1,code);
 	        int result = pstmt.executeUpdate();
 	        System.out.println("Het product met naam "+code+" is verwijderd uit de winkelwagen");
-		    return true;
+	        conn.close();
+	        return true;
 		}
 		else{
 			 System.out.println("Product is niet verwijderd");
+			 conn.close();
 			 return false;
 		 }
+		
 	}
 
 }

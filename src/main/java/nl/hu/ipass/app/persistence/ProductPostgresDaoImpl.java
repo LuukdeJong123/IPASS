@@ -32,6 +32,7 @@ public class ProductPostgresDaoImpl extends PostgresBaseDao implements ProductDa
 			product.setAlcoholpercentage(rs.getDouble("ALCOHOLPERCENTAGE"));
 			lijst_producten.add(product);		
 		}
+		conn.close();
 		return lijst_producten;
 	}
 
@@ -51,10 +52,12 @@ public class ProductPostgresDaoImpl extends PostgresBaseDao implements ProductDa
 	        pstmt.setDouble(4, product.getAlcoholpercentage());
 	        int result = pstmt.executeUpdate();
 	        System.out.println("Het product met naam "+product.getNaam()+" is toegevoegd!");
+	        conn.close();
 		    return true;
 		}
 		else{
 			 System.out.println("Product is niet toegevoegd");
+			 conn.close();
 			 return false;
 		 }
 	}

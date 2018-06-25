@@ -27,7 +27,7 @@ public class OpmerkingPostgresDaoImpl extends PostgresBaseDao implements Opmerki
 			 opmerking.setTekst(rs.getString("TEKST"));
 			 lijst_opmerkingen.add(opmerking);
 		}
-
+		conn.close();
 		return lijst_opmerkingen;
 	}
 	// Deze functie zet een opmerking in de database
@@ -44,11 +44,13 @@ public class OpmerkingPostgresDaoImpl extends PostgresBaseDao implements Opmerki
 	        pstmt.setInt(2, opmerking.getID() );
 	        int result = pstmt.executeUpdate();
 	        System.out.println("De opmerking met ID "+opmerking.getID()+" is toegevoegd!");
+	        conn.close();
 		    return true;
 		}
 		//als de opmerking null is wordt hij niet toegevoegd aan de database 
 		else{
 			 System.out.println("Product is niet toegevoegd");
+			 conn.close();
 			 return false;
 		 }
 	}
