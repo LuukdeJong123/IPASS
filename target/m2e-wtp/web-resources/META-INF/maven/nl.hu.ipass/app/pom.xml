@@ -118,7 +118,7 @@
                                     <groupId>com.github.jsimone</groupId>
                                     <artifactId>webapp-runner</artifactId>
                                     <version>9.0.8.0</version>
-                                    <destFileName>webapp-runner.jar</destFileName>
+                                    <destFileName>webapp-runner.war</destFileName>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>org.apache.tomcat</groupId>
