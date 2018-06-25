@@ -93,7 +93,7 @@ public class WebshopResource {
 			return s;
 		}
 	}
-	//Deze get haalt alle winkelwagen items uit de database.
+	//Deze get haalt alle user items uit de database.
 	@GET
 	@Path("/user")
 	@Produces("application/json")
