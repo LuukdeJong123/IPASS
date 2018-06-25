@@ -100,7 +100,7 @@
 	
   </dependencies>
 
-	<build>
+    <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -124,11 +124,6 @@
                                     <groupId>org.apache.tomcat</groupId>
                                     <artifactId>tomcat-dbcp</artifactId>
                                     <version>9.0.8</version>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.postgresql</groupId>
-                                    <artifactId>postgresql</artifactId>
-                                    <version>42.2.2</version>
                                 </artifactItem>
                             </artifactItems>
                         </configuration>
