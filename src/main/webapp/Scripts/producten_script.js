@@ -1,6 +1,6 @@
 function showProducten(){
 	//Hier haal ik met een GET request alle producten op uit de database.
-	fetch("https://ipassluuk.herokuapp.com/restservices/producten")
+	fetch("/restservices/producten")
 	// http://localhost:4471/app/restservices/producten
 	.then(function(response){
 		return response.json();
@@ -40,7 +40,7 @@ function showProducten(){
 				var formData = new FormData(document.querySelector("#winkelwagen"))
 				var encData = new URLSearchParams(formData.entries());
 				//Hier stuur ik een POST request om het product wat zojuist is gekozen toe te voegen aan de winkelwagen.
-				fetch("https://ipassluuk.herokuapp.com/restservices/producten/post_winkelwagen", {method: "POST", body: encData})
+				fetch("/restservices/producten/post_winkelwagen", {method: "POST", body: encData})
 				//http://localhost:4471/app/restservices/producten/post_winkelwagen
 					.then(function(response){
 						return response.json();

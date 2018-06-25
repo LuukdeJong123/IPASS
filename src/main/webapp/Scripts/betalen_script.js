@@ -1,6 +1,6 @@
 function betalen(){
 	//Hier stuur ik een GET request om de alle items uit de winkelwagen in de database te halen.
-	fetch("https://ipassluuk.herokuapp.com/restservices/producten/winkelwagen")
+	fetch("/restservices/producten/winkelwagen")
 	//http://localhost:4471/app/restservices/producten/winkelwagen
 	.then(function(response){
 		return response.json();		
@@ -32,7 +32,7 @@ function betalen(){
         			array2.push(winkelwagen.winkelwagen_id)
         			for(const id of array2){
         				//Hier gebruik ik een DELETE request om een item uit de database te verwijderen.
-        				fetch("https://ipassluuk.herokuapp.com/restservices/producten/"+ id, {method: 'DELETE' })
+        				fetch("/restservices/producten/"+ id, {method: 'DELETE' })
         				//http://localhost:4471/app/restservices/producten/
                         .then(function (response) { 
                             if (response.ok){
@@ -75,7 +75,7 @@ function post_bestelling(){
 	var formData = new FormData(document.querySelector("#bestelling"))
 	var encData = new URLSearchParams(formData.entries());
 	//Hier stuur ik een POST request om de bestelling toe te voegen aan de database.
-	fetch("https://ipassluuk.herokuapp.com/restservices/producten/post_bestelling", {method: "POST", body: encData})
+	fetch("/restservices/producten/post_bestelling", {method: "POST", body: encData})
 	//http://localhost:4471/app/restservices/producten/post_bestelling
 	.then(function(response){
 		//Hier wordt je terug gewezen naar de home pagina
