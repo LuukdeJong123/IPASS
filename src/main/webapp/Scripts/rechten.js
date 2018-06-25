@@ -8,7 +8,6 @@ function getToken(){
 		    list[i].className = list[i].className + ' show';
 		}
 
-		
 		var list3 = document.querySelectorAll(".visibleAdmin");
 		for (var i = list3.length; i--;) {
 		    list3[i].className = list3[i].className + ' hide';
