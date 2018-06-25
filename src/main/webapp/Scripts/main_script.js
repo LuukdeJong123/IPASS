@@ -5,7 +5,7 @@ function login(){
 		var formData = new FormData(document.querySelector("#inlog3"))
 		var encData = new URLSearchParams(formData.entries());
 		//Hier stuur ik een POST request om te kijken of de gebruikersnaam en wachtwoord kloppen met wat in de database staat.
-		   fetch("/app/restservices/authentication", { method: 'POST', body: encData})
+		   fetch("/restservices/authentication", { method: 'POST', body: encData})
 	        .then(function (response) {
 	            if (response.ok){
 	            	//Nu wordt je dan door deze URL ook meteen doorgewijzigd naar de Home pagina
@@ -22,7 +22,7 @@ function login(){
 	        	.catch(error => console.log(error));
 
 		   //Hier stuur ik een GET request om de klant_ID optevragen want dan weet je als wie je ingelogd ben.
-			fetch("/app/restservices/producten/user")
+			fetch("/restservices/producten/user")
 			.then(function(response){
 				return response.json();
 			})
@@ -62,7 +62,7 @@ function registreren(){
 			var formData = new FormData(document.querySelector("#registreer2"))
 			var encData = new URLSearchParams(formData.entries());
 			//Hier stuur ik een PUT request om te kijken of de gebruikersnaam en wachtwoord kloppen met wat in de database staat.
-			   fetch("/app/restservices/authentication", { method: 'PUT', body: encData,  headers: {'Authorization': 'Bearer ' + window.sessionStorage.getItem("myJWT")}})
+			   fetch("/restservices/authentication", { method: 'PUT', body: encData,  headers: {'Authorization': 'Bearer ' + window.sessionStorage.getItem("myJWT")}})
 		        .then(function (response) {
 		            if (response.ok){
 		            	///Nu wordt je dan door deze URL ook meteen doorgewijzigd naar de inlog pagina pagina
